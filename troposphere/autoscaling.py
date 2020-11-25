@@ -60,6 +60,14 @@ class Tags(AWSHelperFn):
         return self.tags
 
 
+class MetadataOptions(AWSProperty):
+    props = {
+        'HttpEndpoint': (basestring, False),
+        'HttpPutResponseHopLimit': (integer, False),
+        'HttpTokens': (basestring, False),
+    }
+
+
 class LifecycleHookSpecification(AWSProperty):
     props = {
         'DefaultResult': (basestring, False),
@@ -253,6 +261,7 @@ class LaunchConfiguration(AWSObject):
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
         'InstanceId': (basestring, False),
+        'MetadataOptions': (MetadataOptions, False),
         'InstanceMonitoring': (boolean, False),
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
